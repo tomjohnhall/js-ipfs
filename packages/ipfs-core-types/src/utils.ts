@@ -113,13 +113,16 @@ export interface PreloadOptions {
   preload?: boolean
 }
 
-export type ToJSON =
+type ToJSONType = 
   | null
   | string
   | number
   | boolean
-  | ToJSON[]
-  | { toJSON?: () => ToJSON } & { [key: string]: ToJSON }
+
+export type ToJSON =
+  | ToJSONType
+  | ToJSONType[]
+  | { toJSON?: () => ToJSONType } & { [key: string]: ToJSONType }
 
 /**
  * An IPFS path or CID
